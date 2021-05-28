@@ -10,31 +10,31 @@
 #define vll vector<long long int>
 using namespace std;
 //----------------------------------------------------------------------------
-ll sum(ll n){
-    if(n==0)return 0;
-    ll sum=n*(n+1)/2;
-    return sum;
-
-}
 void solve()
 {
-    ll n,m,r,c;
-    cin>>n>>m>>r>>c;
-   
-    ll upar=0,niche=0,right=0,left=0;
-    upar=n-r;
-    niche=n-upar-1;
-    right=m-c;
-    left=m-right-1;
-    ll sum=max(upar,niche)+max(right,left);
-    cout<<sum<<endl;
+   ll p,a,b,c;
+   cin>>p>>a>>b>>c;
+
+   ll mina=(p%a==0)?p/a:p/a+1;
+   ll minb=(p%b==0)?p/b:p/b+1;
+   ll minc=(p%c==0)?p/c:p/c+1;
+   mina=a*mina;
+   minb=b*minb;
+   minc=c*minc;
+
+   mina=mina-p;
+   minb=minb-p;
+   minc=minc-p;
+
+   ll ans=min(mina,min(minb,minc));
+    cout<<ans<<endl;
 
 }
 int main() {
 ll t;
 cin>>t;
 while(t--){
-    solve();
+   solve();
 }
 return 0;
 }

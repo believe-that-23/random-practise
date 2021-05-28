@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
-#include <cmath>
-#include <regex>
+
 #define fi first
 #define se second
 #define pb push_back
@@ -10,31 +9,36 @@
 #define vll vector<long long int>
 using namespace std;
 //----------------------------------------------------------------------------
-ll sum(ll n){
-    if(n==0)return 0;
-    ll sum=n*(n+1)/2;
-    return sum;
-
-}
 void solve()
 {
-    ll n,m,r,c;
-    cin>>n>>m>>r>>c;
-   
-    ll upar=0,niche=0,right=0,left=0;
-    upar=n-r;
-    niche=n-upar-1;
-    right=m-c;
-    left=m-right-1;
-    ll sum=max(upar,niche)+max(right,left);
-    cout<<sum<<endl;
+   ll e;
+   cin>>e;
+   vector<pair<ll,ll>> a(e);
+   set<ll> s;
+   for(ll i=0;i<e;i++){
+   		ll x, y;
+   		cin>>x>>y;
+   		s.insert(x);
+   		s.insert(y);
+   		a[i]={x,y};
+   }
+   int cnt=0;
+   for(ll i=0;i<e;i++){
+   	for(ll j=0;j<e;j++){
+   	if(a[i]!=a[j]){cnt++;}
+   	}
+	}
 
+   cout<<s.size()<<endl;
+
+
+   
 }
 int main() {
 ll t;
 cin>>t;
 while(t--){
-    solve();
+   solve();
 }
 return 0;
 }
